@@ -1,16 +1,15 @@
 Summary:	secure finger daemon
 Summary(pl):	bezpieczny serwer finger
 Name:		ffingerd
-Version:	1.23
+Version:	1.24
 Release:	1
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Demony
 Copyright:	GPL
-Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.gz
+Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
 Patch:		ffingerd-DESTDIR.patch
 Requires:	inetd
 Provides:	fingerd
-#Obsoletes:	finger
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -42,8 +41,8 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make DESTDIR=$RPM_BUILD_ROOT \
-	install
+make install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
 	README NEWS TODO
