@@ -48,7 +48,7 @@ pliku ".nofinger".
 
 %build
 aclocal
-autoconf
+%{__autoconf}
 %configure \
 	CFLAGS="%{rpmcflags} -D__ss_family=ss_family" \
 	--enable-ipv6
