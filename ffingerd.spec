@@ -1,7 +1,7 @@
 Summary:	secure finger daemon
 Summary(pl):	bezpieczny serwer finger
 Name:		ffingerd
-Version:	1.24
+Version:	1.25
 Release:	1
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Demony
@@ -10,7 +10,7 @@ Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.ta
 Source1:	%{name}.inetd
 Patch:		ffingerd-DESTDIR.patch
 Requires:	inetdaemon
-Requires:	rc-inetd
+Prereq:		rc-inetd
 Provides:	fingerd
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -43,15 +43,25 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install \
-	DESTDIR=$RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
-install %{SOURCE1} RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/ffingerd
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/ffingerd
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
 	README NEWS TODO
 
+%post 
+if [ -f /var/lock/subsys/rc-inetd ]; then
+	/etc/rc.d/init.d/rc-inetd restart 1>&2
+else
+	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet sever" 1>&2
+fi
+
+%postun
+if [ -f /var/lock/subsys/rc-inetd ]; then
+	/etc/rc.d/init.d/rc-inetd stop
+fi
 %clean
 rm -rf $RPM_BUILD_ROOT
 
