@@ -59,7 +59,8 @@ pliku ".nofinger".
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
