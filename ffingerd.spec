@@ -42,6 +42,7 @@ stworzenie w katalogu domowym pliku ".nofinger".
 %build
 LDFLAGS="-s"; export LDFLAGS
 autoconf
+automake -a ||
 %configure --enable-ipv6
 make
 
