@@ -49,7 +49,6 @@ pliku ".nofinger".
 %build
 aclocal
 autoconf
-automake -a -c
 %configure \
 	--enable-ipv6
 %{__make}
