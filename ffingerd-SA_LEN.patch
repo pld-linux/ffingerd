@@ -1,0 +1,16 @@
+diff -urN ffingerd-1.28.org/ffingerd.c ffingerd-1.28/ffingerd.c
+--- ffingerd-1.28.org/ffingerd.c        Sun Aug 12 17:34:04 2001
++++ ffingerd-1.28/ffingerd.c    Sun Aug 12 17:35:50 2001
+@@ -72,6 +72,11 @@
+ #define PATH_MAX 256
+ #endif
+
++#ifndef SA_LEN
++#define SA_LEN(x) (((x)->sa_family == AF_INET6)?sizeof(struct sockaddr_in6): \
++       (((x)->sa_family == AF_INET)?sizeof(struct sockaddr_in):sizeof(struct sockaddr)))
++#endif
++
+ #ifdef __STDC__
+ void dump_file(char *filename,char *found_message,char *not_found_message) {
+ #else
+
