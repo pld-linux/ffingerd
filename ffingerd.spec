@@ -47,7 +47,7 @@ pliku ".nofinger".
 %patch2 -p1
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure \
 	CFLAGS="%{rpmcflags} -D__ss_family=ss_family" \
