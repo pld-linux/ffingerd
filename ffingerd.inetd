@@ -5,4 +5,4 @@ PORT=79
 FLAGS=nowait
 USER=nobody
 SERVER=tcpd
-DAEMON=/usr/sbin/fingerd
+DAEMON=/usr/sbin/ffingerd
