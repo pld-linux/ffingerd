@@ -7,8 +7,10 @@ Group:		Networking/Daemons
 Group(pl):	Sieciowe/Demony
 Copyright:	GPL
 Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
+Source1:	%{name}.inetd
 Patch:		ffingerd-DESTDIR.patch
-Requires:	inetd
+Requires:	inetdaemon
+Requires:	rc-inetd
 Provides:	fingerd
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -44,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 make install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
+install %{SOURCE1} RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/ffingerd
+
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
 	README NEWS TODO
 
@@ -54,5 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {README,NEWS,TODO}.gz
 %attr(755,root,root) %{_sbindir}/*
+%attr(640,root,root) /etc/sysconfig/rc-inetd/ffingerd
 
 %{_mandir}/man8/*
