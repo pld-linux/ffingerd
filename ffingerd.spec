@@ -49,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 make exec_prefix=$RPM_BUILD_ROOT/usr \
 	prefix=$RPM_BUILD_ROOT/usr install
 
-gzip -9nf $RPM_BUILD_ROOT/usr/share/man/man8/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
 	README NEWS TODO
 
 %clean
@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc {README,NEWS,TODO}.gz
 %attr(755,root,root) /usr/sbin/*
 
-/usr/share/man/man8/*
+%{_mandir}/man8/*
 
 %changelog
 * Thu May 13 1999 Piotr Czerwiñski <pius@pld.org.pl>
