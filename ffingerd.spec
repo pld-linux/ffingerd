@@ -2,7 +2,7 @@ Summary:	Secure finger daemon
 Summary(pl):	Bezpieczny serwer finger
 Name:		ffingerd
 Version:	1.28
-Release:	3
+Release:	4
 License:	GPL
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
@@ -20,6 +20,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	bsd-fingerd
 Obsoletes:	finger-server
 Obsoletes:	cfingerd
+Obsoletes:	efingerd
 
 %description
 The ffingerd program is a drop-in replacement for the standard fingerd
