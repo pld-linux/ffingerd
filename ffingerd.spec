@@ -57,8 +57,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/*
 
 %{_mandir}/man8/*
-
-%changelog
-* Thu May 13 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.21-1]
-- initial rpm release.
