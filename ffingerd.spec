@@ -6,6 +6,7 @@ Release:	7
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
+# Source0-md5:	90e2ebbe8f299e12b4c5da401c0b71b1
 Source1:	%{name}.inetd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-gethostbyaddr_is_in_libc_aka_no_libnsl.patch
