@@ -1,31 +1,26 @@
-diff -ur ffingerd-1.21.old/Makefile.in ffingerd-1.21/Makefile.in
---- ffingerd-1.21.old/Makefile.in	Wed May 12 23:27:15 1999
-+++ ffingerd-1.21/Makefile.in	Thu Jun 24 08:26:35 1999
-@@ -21,19 +21,19 @@
+--- Makefile.in~	Tue Jul  6 15:51:06 1999
++++ Makefile.in	Wed Jul  7 11:47:23 1999
+@@ -26,18 +26,18 @@
  	@echo Ok, do a 'make install' or 'make install.all' now.
  
- install: ffingerd
--	$(INSTALL) -d $(INSTALL_DIR) $(MANDIR) $(MANDIR)/man8
--	$(INSTALL) ffingerd $(INSTALL_DIR)/ffingerd
--	$(INSTALL_DATA) -m 444 ffingerd.8 $(MANDIR)/man8
-+	$(INSTALL) -d $(DESTDIR)$(INSTALL_DIR) $(DESTDIR)$(MANDIR) $(DESTDIR)$(MANDIR)/man8
-+	$(INSTALL) ffingerd $(DESTDIR)$(INSTALL_DIR)/ffingerd
-+	$(INSTALL_DATA) -m 444 ffingerd.8 $(DESTDIR)$(MANDIR)/man8
+ install.bin: ffingerd
+-	-$(INSTALL) -d $(SBINDIR) $(MANDIR) $(MANDIR)/man8
+-	$(INSTALL) ffingerd $(SBINDIR)/ffingerd
+-	$(INSTALL_DATA) -m 444 $(srcdir)/ffingerd.8 $(MANDIR)/man8
++	-$(INSTALL) -d $(DESTDIR)$(SBINDIR) $(DESTDIR)$(MANDIR) $(DESTDIR)$(MANDIR)/man8
++	$(INSTALL) ffingerd $(DESTDIR)$(SBINDIR)/ffingerd
++	$(INSTALL_DATA) -m 444 $(srcdir)/ffingerd.8 $(DESTDIR)$(MANDIR)/man8
+ 
+ install: install.bin
  	@echo Do not forget to fix /etc/inetd.conf and kill -HUP the inetd.
  
- install.all: ffingerd
--	$(INSTALL) -d $(INSTALL_DIR) $(MANDIR) $(MANDIR)/man8
--	$(INSTALL) ffingerd $(INSTALL_DIR)/ffingerd
--	$(INSTALL_DATA) -m 444 ffingerd.8 $(MANDIR)/man8
--	$(SRC)/install.conf $(INSTALL_DIR)/ffingerd $(AWK) $(SED) $(KILLALL)
-+	$(INSTALL) -d $(DESTDIR)$(INSTALL_DIR) $(DESTDIR)$(MANDIR) $(DESTDIR)$(MANDIR)/man8
-+	$(INSTALL) ffingerd $(DESTDIR)$(INSTALL_DIR)/ffingerd
-+	$(INSTALL_DATA) -m 444 ffingerd.8 $(DESTDIR)$(MANDIR)/man8
-+	$(SRC)/install.conf $(DESTDIR)$(INSTALL_DIR)/ffingerd $(AWK) $(SED) $(KILLALL)
+ install.all: install.bin
+-	$(SRC)/install.conf $(SBINDIR)/ffingerd $(AWK) $(SED) $(KILLALL)
++	$(SRC)/install.conf $(DESTDIR)$(SBINDIR)/ffingerd $(AWK) $(SED) $(KILLALL)
  
  uninstall:
--	rm -f $(INSTALL_DIR)/ffingerd $(MANDIR)/man8/ffingerd*
-+	rm -f $(DESTDIR)$(INSTALL_DIR)/ffingerd $(DESTDIR)$(MANDIR)/man8/ffingerd*
+-	rm -f $(SBINDIR)/ffingerd $(MANDIR)/man8/ffingerd*
++	rm -f $(DESTDIR)$(SBINDIR)/ffingerd $(DESTDIR)$(MANDIR)/man8/ffingerd*
  	@echo Do not forget to tell inetd...
  
  clean:
