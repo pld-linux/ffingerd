@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
-Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
 Source1:	%{name}.inetd
 Patch0:		ffingerd-DESTDIR.patch
 URL:		http://www.fefe.de/ffingerd/
@@ -20,20 +20,21 @@ Obsoletes:	cfingerd
 
 %description
 The ffingerd program is a drop-in replacement for the standard fingerd
-daemon. Ffingerd is invoked by inetd and it runs as nobody. Ffingerd does
-not allow global finger queries (finger @host), indirect finger queries
-(finger foo@host.a@host.b), it does not give away valuable information like
- the shell, login directory and time of last login, and users can put a
-".nofinger" file in their homes and then ffingerd will respond with "That
-user does not want to be fingered".
+daemon. Ffingerd is invoked by inetd and it runs as nobody. Ffingerd
+does not allow global finger queries (finger @host), indirect finger
+queries (finger foo@host.a@host.b), it does not give away valuable
+information like the shell, login directory and time of last login,
+and users can put a ".nofinger" file in their homes and then ffingerd
+will respond with "That user does not want to be fingered".
 
 %description -l pl
-Program ffingerd jest zamiennikiem dla standardowego demona fingerd. Jest
-uruchamiany przez inetd i pracuje jako u¿ytkownik nobody. Ffingerd nie
-pozwala na zapytania globalne (finger @host), zapytania  po¶rednie (finger
-foo@host.a@host.b), nie wy¶wietla informacji o pow³oce u¿ytkownika, jego
-katalogu domowym i czasie ostatniego zalogowania. Umo¿liwia u¿ytkownikom
-stworzenie w katalogu domowym pliku ".nofinger".
+Program ffingerd jest zamiennikiem dla standardowego demona fingerd.
+Jest uruchamiany przez inetd i pracuje jako u¿ytkownik nobody.
+Ffingerd nie pozwala na zapytania globalne (finger @host), zapytania
+po¶rednie (finger foo@host.a@host.b), nie wy¶wietla informacji o
+pow³oce u¿ytkownika, jego katalogu domowym i czasie ostatniego
+zalogowania. Umo¿liwia u¿ytkownikom stworzenie w katalogu domowym
+pliku ".nofinger".
 
 %prep
 %setup -q
