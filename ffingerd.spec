@@ -2,10 +2,10 @@ Summary:	Secure finger daemon
 Summary(pl):	Bezpieczny serwer finger
 Name:		ffingerd
 Version:	1.25
-Release:	4
+Release:	5
+License:	GPL
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
-License:	GPL
 Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
 Source1:	%{name}.inetd
 Patch0:		ffingerd-DESTDIR.patch
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/ffingerd
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
 	README NEWS TODO
@@ -77,6 +77,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {README,NEWS,TODO}.gz
 %attr(755,root,root) %{_sbindir}/*
-%attr(640,root,root) /etc/sysconfig/rc-inetd/ffingerd
+%attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
 
 %{_mandir}/man8/*
