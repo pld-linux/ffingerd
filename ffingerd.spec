@@ -8,7 +8,8 @@ Group(pl):	Sieciowe/Serwery
 Copyright:	GPL
 Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
 Source1:	%{name}.inetd
-Patch:		ffingerd-DESTDIR.patch
+Patch0:		ffingerd-DESTDIR.patch
+Patch1:		ffingerd-ipv6.patch
 Requires:	inetdaemon
 Prereq:		rc-inetd
 Provides:	fingerd
@@ -33,11 +34,13 @@ Umo¿liwia u¿ytkownikom stworzenie w katalogu domowym pliku ".nofinger".
 
 %prep
 %setup -q
-%patch -p0
+%patch0 -p0
+%patch1 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
-%configure 
+autoconf
+%configure --enable-ipv6
 make
 
 %install
