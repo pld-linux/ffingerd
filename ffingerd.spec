@@ -1,15 +1,14 @@
 Summary:	Secure finger daemon
 Summary(pl):	Bezpieczny serwer finger
 Name:		ffingerd
-Version:	1.25
-Release:	5
+Version:	1.26
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
 Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
 Source1:	%{name}.inetd
 Patch0:		ffingerd-DESTDIR.patch
-Patch1:		http://www.misiek.eu.org/ipv6/ffingerd-1.25.ipv6.patch.gz
 URL:		http://www.fefe.de/ffingerd/
 Requires:	inetdaemon
 Prereq:		rc-inetd >= 0.8.1
@@ -38,8 +37,7 @@ stworzenie w katalogu domowym pliku ".nofinger".
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p1
+%patch0 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
