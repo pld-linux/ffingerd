@@ -11,7 +11,7 @@ BuildPrereq:	autoconf >= 2.13-8
 Requires:	inetd
 Provides:	fingerd
 Obsoletes:	finger
-BuildRoot:   	/tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 The ffingerd program is a drop-in replacement for the standard fingerd
