@@ -16,7 +16,7 @@ Provides:	fingerd
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	bsd-fingerd
 Obsoletes:	finger-server
-Obsoletes:	cfingeerd
+Obsoletes:	cfingerd
 
 %description
 The ffingerd program is a drop-in replacement for the standard fingerd
