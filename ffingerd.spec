@@ -2,7 +2,7 @@ Summary:	Secure finger daemon
 Summary(pl):	Bezpieczny serwer finger
 Name:		ffingerd
 Version:	1.28
-Release:	5
+Release:	6
 License:	GPL
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
@@ -11,6 +11,7 @@ Source0:	ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.ta
 Source1:	%{name}.inetd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-gethostbyaddr_is_in_libc_aka_no_libnsl.patch
+Patch2:		%{name}-SA_LEN.patch
 URL:		http://www.fefe.de/ffingerd/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -45,11 +46,13 @@ pliku ".nofinger".
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 aclocal
 autoconf
 %configure \
+	CFLAGS="%{rpmcflags} -D__ss_family=ss_family" \
 	--enable-ipv6
 %{__make}
 
