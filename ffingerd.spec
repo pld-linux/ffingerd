@@ -2,7 +2,7 @@ Summary:	secure finger daemon
 Summary(pl):	bezpieczny serwer finger
 Name:		ffingerd
 Version:	1.25
-Release:	1
+Release:	2
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Demony
 Copyright:	GPL
@@ -60,8 +60,9 @@ fi
 
 %postun
 if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd stop
+	/etc/rc.d/init.d/rc-inetd restart
 fi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
