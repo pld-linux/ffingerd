@@ -13,7 +13,7 @@ URL:		http://www.fefe.de/ffingerd/
 Requires:	inetdaemon
 Prereq:		rc-inetd >= 0.8.1
 Provides:	fingerd
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	bsd-fingerd
 Obsoletes:	finger-server
 Obsoletes:	cfingerd
