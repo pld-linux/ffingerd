@@ -1,7 +1,7 @@
 Summary:	secure finger daemon
 Summary(pl):	bezpieczny serwer finger
 Name:		ffingerd
-Version:	1.21
+Version:	1.23
 Release:	1
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Demony
@@ -32,7 +32,7 @@ umo¿liwia u¿ytkownikom stworzenie w katalogu domowym pliku ".nofinger".
 
 %prep
 %setup -q
-%patch -p1
+%patch -p0
 
 %build
 LDFLAGS="-s"; export LDFLAGS
