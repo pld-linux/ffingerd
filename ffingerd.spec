@@ -10,6 +10,7 @@ Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.ta
 Source1:	%{name}.inetd
 Patch0:		ffingerd-DESTDIR.patch
 Patch1:		http://www.misiek.eu.org/ipv6/ffingerd-1.25.ipv6.patch.gz
+URL:		http://www.fefe.de/ffingerd/
 Requires:	inetdaemon
 Prereq:		rc-inetd >= 0.8.1
 Provides:	fingerd
