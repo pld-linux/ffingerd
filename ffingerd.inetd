@@ -1,0 +1,7 @@
+SERVICE_NAME=finger
+SOCK_TYPE=stream
+PROTOCOL=tcp
+FLAGS=nowait
+USER=nobody
+SERVER=tcpd
+DAEMON=/usr/sbin/fingerd
