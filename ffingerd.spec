@@ -7,10 +7,10 @@ Group:		Networking/Daemons
 Group(pl):	Sieciowe/Demony
 Copyright:	GPL
 Source:		ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.gz
-BuildPrereq:	autoconf >= 2.13-8
+Patch:		ffingerd-DESTDIR.patch
 Requires:	inetd
 Provides:	fingerd
-Obsoletes:	finger
+#Obsoletes:	finger
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -32,22 +32,18 @@ umo¿liwia u¿ytkownikom stworzenie w katalogu domowym pliku ".nofinger".
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-autoconf
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
-	--target=%{_target_patform} \
-	--host=%{_host} \
-	--prefix=/usr \
-	--exec_prefix=/usr
+LDFLAGS="-s"; export LDFLAGS
+%configure 
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make exec_prefix=$RPM_BUILD_ROOT/usr \
-	prefix=$RPM_BUILD_ROOT/usr install
+make DESTDIR=$RPM_BUILD_ROOT \
+	install
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
 	README NEWS TODO
