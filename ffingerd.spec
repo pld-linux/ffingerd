@@ -2,7 +2,7 @@ Summary:	Secure finger daemon
 Summary(pl):	Bezpieczny serwer finger
 Name:		ffingerd
 Version:	1.28
-Release:	6
+Release:	7
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
@@ -62,8 +62,6 @@ install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
-gzip -9nf README NEWS TODO
-
 %post
 if [ -f /var/lock/subsys/rc-inetd ]; then
 	/etc/rc.d/init.d/rc-inetd reload 1>&2
@@ -81,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,NEWS,TODO}.gz
+%doc README NEWS TODO
 %attr(755,root,root) %{_sbindir}/*
 %attr(640,root,root) /etc/sysconfig/rc-inetd/fingerd
 
