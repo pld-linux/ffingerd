@@ -45,7 +45,7 @@ LDFLAGS="-s"; export LDFLAGS
 autoconf
 automake -a ||
 %configure --enable-ipv6
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
