@@ -6,4 +6,3 @@ FLAGS=nowait
 USER=nobody
 SERVER=tcpd
 DAEMON=/usr/sbin/ffingerd
-FAMILY=ipv6
