@@ -2,7 +2,7 @@ Summary:	Secure finger daemon
 Summary(pl):	Bezpieczny serwer finger
 Name:		ffingerd
 Version:	1.28
-Release:	8
+Release:	9
 License:	GPL
 Group:		Networking/Daemons
 Source0:	ftp://ftp.fu-berlin.de/pub/unix/security/ffingerd/%{name}-%{version}.tar.bz2
