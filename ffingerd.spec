@@ -36,7 +36,9 @@ umo¿liwia u¿ytkownikom stworzenie w katalogu domowym pliku ".nofinger".
 %build
 autoconf
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target} \
+./configure \
+	--target=%{_target_patform} \
+	--host=%{_host} \
 	--prefix=/usr \
 	--exec_prefix=/usr
 make
