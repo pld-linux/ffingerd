@@ -1,0 +1,13 @@
+diff -Nru ffingerd-1.28/configure.in ffingerd-1.28.new/configure.in
+--- ffingerd-1.28/configure.in	Thu Mar 16 10:56:23 2000
++++ ffingerd-1.28.new/configure.in	Tue Aug 22 12:29:53 2000
+@@ -13,7 +13,8 @@
+ AC_PROG_CC
+ AC_PROG_INSTALL
+ dnl Checks for libraries.
+-AC_CHECK_LIB(nsl,gethostbyaddr)
++AC_CHECK_FUNC(gethostbyaddr, ,
++	AC_CHECK_LIB(nsl, gethostbyaddr, LIBS="$LIBS -lnsl",) )
+ AC_CHECK_LIB(gen,syslog)
+ AC_CHECK_LIB(socket,socket)
+ dnl Checks for header files.
