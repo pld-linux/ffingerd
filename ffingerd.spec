@@ -14,14 +14,15 @@ Patch2:		%{name}-SA_LEN.patch
 URL:		http://www.fefe.de/ffingerd/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	inetdaemon
-Prereq:		rc-inetd >= 0.8.1
+Requires:	rc-inetd >= 0.8.1
 Provides:	fingerd
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	bsd-fingerd
-Obsoletes:	finger-server
 Obsoletes:	cfingerd
 Obsoletes:	efingerd
+Obsoletes:	finger-server
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The ffingerd program is a drop-in replacement for the standard fingerd
@@ -65,15 +66,11 @@ install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-inetd/fingerd
 
 %post
-if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd reload 1>&2
-else
-	echo "Type \"/etc/rc.d/init.d/rc-inetd start\" to start inet server" 1>&2
-fi
+%service -q rc-inetd reload
 
 %postun
-if [ -f /var/lock/subsys/rc-inetd ]; then
-	/etc/rc.d/init.d/rc-inetd reload
+if [ "$1" = 0 ]; then
+	%service -q rc-inetd reload
 fi
 
 %clean
