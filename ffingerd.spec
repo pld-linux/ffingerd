@@ -1,5 +1,5 @@
 Summary:	Secure finger daemon
-Summary(pl):	Bezpieczny serwer finger
+Summary(pl.UTF-8):   Bezpieczny serwer finger
 Name:		ffingerd
 Version:	1.28
 Release:	9
@@ -33,13 +33,13 @@ information like the shell, login directory and time of last login,
 and users can put a ".nofinger" file in their homes and then ffingerd
 will respond with "That user does not want to be fingered".
 
-%description -l pl
+%description -l pl.UTF-8
 Program ffingerd jest zamiennikiem dla standardowego demona fingerd.
-Jest uruchamiany przez inetd i pracuje jako uøytkownik nobody.
+Jest uruchamiany przez inetd i pracuje jako u≈ºytkownik nobody.
 Ffingerd nie pozwala na zapytania globalne (finger @host), zapytania
-po∂rednie (finger foo@host.a@host.b), nie wy∂wietla informacji o
-pow≥oce uøytkownika, jego katalogu domowym i czasie ostatniego
-zalogowania. Umoøliwia uøytkownikom stworzenie w katalogu domowym
+po≈õrednie (finger foo@host.a@host.b), nie wy≈õwietla informacji o
+pow≈Çoce u≈ºytkownika, jego katalogu domowym i czasie ostatniego
+zalogowania. Umo≈ºliwia u≈ºytkownikom stworzenie w katalogu domowym
 pliku ".nofinger".
 
 %prep
