@@ -1,5 +1,5 @@
 Summary:	Secure finger daemon
-Summary(pl.UTF-8):   Bezpieczny serwer finger
+Summary(pl.UTF-8):	Bezpieczny serwer finger
 Name:		ffingerd
 Version:	1.28
 Release:	9
