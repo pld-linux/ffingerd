@@ -1,0 +1,3 @@
+- release 5,
+- added automake to BuildRequires,
+- now package can be builded also in automake 1.4b environment.
